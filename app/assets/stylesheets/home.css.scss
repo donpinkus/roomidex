@@ -1,3 +1,35 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+html {
+	background: #69d2e7;
+	body {
+		background: #69d2e7;
+		text-align: center;
+		.roomidex-logo {
+			margin-top: 60px;
+		}
+		.movingInput {
+			margin-top: 60px;
+			.halo {
+				background: rgba(255, 255, 255, 0.4);
+				padding: 10px;
+				select {
+					height: 41px;
+				}
+			}
+		}
+	}
+}
+
+.navbar {
+	border-bottom: 1px solid rgba(0,0,0,0.1);
+	-webkit-box-shadow: 0 1px 16px rgba(0,0,0,0.2);
+	-moz-box-shadow: 0 1px 16px rgba(0,0,0,0.2);
+	box-shadow: 0 1px 16px rgba(0,0,0,0.2);
+}
+
+.navbar-spacer {
+	height: 50px;
+}
