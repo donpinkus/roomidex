@@ -12,6 +12,7 @@ gem 'figaro'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'simple_form'
+gem "bugsnag"
 group :development do
   gem 'sqlite3'
   gem 'better_errors'
