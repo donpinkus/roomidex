@@ -2,24 +2,24 @@
   <div class="navbar-header">
     <%= link_to "Roomidex", root_path, :class => 'navbar-brand' %>
   </div>
-  <div class="pull-right">
-    <ul class="nav navbar-nav">
-      <% if user_signed_in? %>
-        <li>
-          Logged in as <%= current_user.name %>
-        </li>
-        <li>
-          <%= link_to 'Logout', signout_path, class: "btn btn-primary" %>
-        </li>
-      <% else %>
-        <li>
-          <div class="navbar-form">
-            <%= link_to 'Login', signin_path, class: "btn btn-primary" %>
-          </div>
-        </li>
-      <% end %>
-    </ul>
-  </div>
+  <ul class="nav navbar-nav navbar-right">
+    <% if user_signed_in? %>
+      <li>
+        <a href="#"><%= current_user.name %></a>
+      </li>
+      <li>
+        <div class="navbar-form">
+          <%= link_to 'Logout', signout_path, class: "btn btn-default" %>
+        </div>
+      </li>
+    <% else %>
+      <li>
+        <div class="navbar-form">
+          <%= link_to 'Login', signin_path, class: "btn btn-primary" %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
 </nav>
 <div class="navbar-spacer">
 </div>

@@ -20,14 +20,33 @@ html {
 				}
 			}
 		}
+		.fbLikes {
+			margin-top: 40px;
+		}
 	}
 }
 
 .navbar {
+	background: #4b4f7f;
 	border-bottom: 1px solid rgba(0,0,0,0.1);
 	-webkit-box-shadow: 0 1px 16px rgba(0,0,0,0.2);
 	-moz-box-shadow: 0 1px 16px rgba(0,0,0,0.2);
 	box-shadow: 0 1px 16px rgba(0,0,0,0.2);
+	ul.navbar-right {
+		margin-right: 0px;
+		&:last-child {
+			margin-right: 0px;
+		}
+	}
+	.navbar-brand {
+		color: white;
+	}
+	.navbar-nav > li > a {
+		color: white;
+		&:hover {
+			color: rgba(252, 252, 252, 0.8);
+		}
+	}
 }
 
 .navbar-spacer {

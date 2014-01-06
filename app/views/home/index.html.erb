@@ -1,6 +1,6 @@
 <!-- <h3>Home</h3> -->
 <% @users.each do |user| %>
-  <p>User: <%=link_to user.name, user %></p>
+  <!-- <p>User: <%=link_to user.name, user %></p> -->
 <% end %>
 <section class="container textCenter">
 	<%= image_tag "roomidexlogobanner-beta.png", class: "roomidex-logo" %>
@@ -9,9 +9,10 @@
 			<div class="row">
 				<div class="col-md-7">
 					<select class="form-control">
-						<option>Where are you moving?</option>
-					  <option>San Francisco, CA</option>
-					  <option>New York, NY</option>
+						<optgroup label="Where are you moving?">
+						  <option>San Francisco, CA</option>
+						  <option>New York, NY</option>
+						</optgroup>
 					</select>
 				</div>
 				<div class="col-md-4">
@@ -20,6 +21,16 @@
 					</a>
 				</div>
 			</div>
+		</div>
+	</div>
+	<div class="row fbLikes">
+		<div 
+			class="fb-like" 
+			data-href="https://www.facebook.com/Roomidex" 
+			data-layout="standard" 
+			data-action="like" 
+			data-show-faces="true" 
+			data-share="true">
 		</div>
 	</div>
 </section>
