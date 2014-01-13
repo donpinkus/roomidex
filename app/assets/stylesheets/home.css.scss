@@ -40,6 +40,9 @@ html {
 	}
 	.navbar-brand {
 		color: white;
+		&:hover {
+			color: rgba(252, 252, 252, 0.8);
+		}
 	}
 	.navbar-nav > li > a {
 		color: white;
