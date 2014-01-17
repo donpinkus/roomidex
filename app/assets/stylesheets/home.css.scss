@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-html {
+#home_index {
 	background: #69d2e7;
 	body {
 		background: #69d2e7;
@@ -50,8 +50,4 @@ html {
 			color: rgba(252, 252, 252, 0.8);
 		}
 	}
-}
-
-.navbar-spacer {
-	height: 50px;
 }

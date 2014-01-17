@@ -1,7 +1,53 @@
-<h3>User</h3>
-<p>User: <%= @user.name %></p>
-<p>Age: <%= @user.age if @user.age %></p>
-<p>Gender: <%= @user.gender if @user.gender %></p>
-<p>University: <%= @user.university if @user.university %></p>
-<p>Graduation Year: <%= @user.grad_year if @user.grad_year %></p>
-<p>Company: <%= @user.company if @user.company %></p>
+<div class="container">
+	<div class="row">
+		<div class="col-sm-12">
+			<h1><%= @user.name %></h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-5">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<p class="panel-title">About</p>
+				</div>
+				<div class="panel-body">
+					<dl class="dl-horizontal">
+						<dt>Age</dt><dd><%= @user.age if @user.age %></dd>
+						<dt>University</dt><dd><%= @user.university if @user.university %></dd>
+						<dt>Gender</dt><dd><%= @user.gender if @user.gender %></dd>
+						<dt>Graduation</dt><dd><%= @user.grad_year if @user.grad_year %></dd>
+						<dt>Company</dt><dd><%= @user.company if @user.company %></dd>
+					</dl>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<p class="panel-title">Donald's Move</p>
+				</div>
+				<div class="panel-body">
+					<dl class="dl-horizontal">
+						<dt>City</dt><dd>San Francisco</dd>
+						<dt>University</dt><dd><%= @user.university if @user.university %></dd>
+						<dt>Gender</dt><dd><%= @user.gender if @user.gender %></dd>
+						<dt>Graduation</dt><dd><%= @user.grad_year if @user.grad_year %></dd>
+						<dt>Company</dt><dd><%= @user.company if @user.company %></dd>
+					</dl>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-7">
+			<div class="well clearfix">
+				<form class="form">
+					<div class="form-group">
+						<textarea class="form-control"></textarea>
+					</div>
+					<div class="form-group">
+						<button class="btn btn-primary pull-right btn-sm" type="submit">Post</input>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+			
+	</div>
+</div>
