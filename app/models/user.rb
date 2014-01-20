@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   # attr_accessible :provider, :uid, :name, :email
   validates_presence_of :name
+  has_one :move
 
   def self.create_with_omniauth(auth)
     create! do |user|

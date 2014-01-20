@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140113181952) do
+ActiveRecord::Schema.define(version: 20140120041551) do
+
+  create_table "moves", force: true do |t|
+    t.date     "start_date"
+    t.date     "end_date"
+    t.integer  "min_price"
+    t.integer  "max_price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "name"
