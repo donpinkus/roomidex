@@ -11,9 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140120041551) do
+ActiveRecord::Schema.define(version: 20140124021413) do
 
   create_table "moves", force: true do |t|
+    t.integer  "user_id"
     t.date     "start_date"
     t.date     "end_date"
     t.integer  "min_price"
@@ -21,6 +22,8 @@ ActiveRecord::Schema.define(version: 20140120041551) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "moves", ["user_id"], name: "index_moves_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "name"
