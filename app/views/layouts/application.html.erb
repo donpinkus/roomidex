@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html id=<%= params[:controller] + "_" + params[:action] %>
+<html id=<%= controller.controller_name + "_" + controller.action_name %>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= content_for?(:title) ? yield(:title) : "Roomidex" %></title>

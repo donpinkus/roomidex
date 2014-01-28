@@ -1,51 +1,157 @@
 <div class="container">
-	<div class="row">
-		<div class="col-sm-12">
+	<div class="row headerRow">
+		<div class="col-sm-2">
+			<img src="https://graph.facebook.com/<%= @user.uid %>/picture?width=150&height=150" alt="" />
+		</div>
+		<div class="col-sm-10">
 			<h1><%= @user.name %></h1>
+			<h4>$1,500 - $2,200</h4>
+			<h4>March 1, 2014 - May 1, 2014</h4>
+			<p>
+				<button class="btn btn-primary btn-sm">
+					<i class="glyphicon glyphicon-plus"></i>
+					Add to Roomidex
+				</button>
+				<button class="btn btn-success btn-sm">
+					<i class="glyphicon-envelope glyphicon"></i>
+					Send Message
+				</button> 
+				&nbsp; Response Rate: <span class="text-success">100%</span>
+			</p>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-sm-5">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<p class="panel-title">About</p>
+					<p class="panel-title clearfix">
+						About
+						<% if current_user.id == params[:id].to_i %>
+							<%= link_to 'Edit', edit_user_path(current_user.id), class: "btn btn-default pull-right btn-sm" %>
+						<% end %>
+					</p>
 				</div>
 				<div class="panel-body">
 					<dl class="dl-horizontal">
-						<dt>Age</dt><dd><%= @user.age if @user.age %></dd>
-						<dt>University</dt><dd><%= @user.university if @user.university %></dd>
-						<dt>Gender</dt><dd><%= @user.gender if @user.gender %></dd>
-						<dt>Graduation</dt><dd><%= @user.grad_year if @user.grad_year %></dd>
-						<dt>Company</dt><dd><%= @user.company if @user.company %></dd>
+						<dt>Age</dt>
+						<dd class="<%= "text-muted" if !@user.age %>">
+							<%= @user.age if @user.age %>
+							<%= "Not specified." if !@user.age %>
+						</dd>
+						<dt>University</dt>
+						<dd class="<%= "text-muted" if !@user.age %>">
+							<%= @user.university if @user.university %>
+							<%= "Not specified." if !@user.age %>
+						</dd>
+						<dt>Gender</dt>
+						<dd class="<%= "text-muted" if !@user.age %>">
+							<%= @user.gender if @user.gender %>
+							<%= "Not specified." if !@user.age %>
+						</dd>
+						<dt>Graduation</dt>
+						<dd class="<%= "text-muted" if !@user.age %>">
+							<%= @user.grad_year if @user.grad_year %>
+							<%= "Not specified." if !@user.age %>
+						</dd>
+						<dt>Company</dt>
+						<dd class="<%= "text-muted" if !@user.age %>">
+							<%= @user.company if @user.company %>
+							<%= "Not specified." if !@user.age %>
+						</dd>
 					</dl>
 				</div>
 			</div>
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<p class="panel-title">Move</p>
+					<p class="panel-title clearfix">
+						Move
+						<% if current_user.id == params[:id].to_i %>
+							<%= link_to 'Edit', edit_user_path(current_user.id), class: "btn btn-default pull-right btn-sm" %>
+						<% end %>
+						</p>
 				</div>
 				<div class="panel-body">
-					<dl class="dl-horizontal">
-						<dt>Start Date</dt><dd><%= @user.move.start_date if @user.move.start_date %></dd>
-						<dt>University</dt><dd><%= @user.university if @user.university %></dd>
-						<dt>Gender</dt><dd><%= @user.gender if @user.gender %></dd>
-						<dt>Graduation</dt><dd><%= @user.grad_year if @user.grad_year %></dd>
-						<dt>Company</dt><dd><%= @user.company if @user.company %></dd>
-					</dl>
+					<% if @user.move %>
+						<dl class="dl-horizontal">
+							<dt>Start Date</dt><dd><%= @user.move.start_date if @user.move.start_date %></dd>
+							<dt>End Date</dt><dd><%= @user.university if @user.university %></dd>
+							<dt>Min Price</dt><dd><%= @user.gender if @user.gender %></dd>
+							<dt>Max Price</dt><dd><%= @user.grad_year if @user.grad_year %></dd>
+						</dl>
+					<% else %>
+						<p class="text-danger">Not moving currently.</p>
+					<% end %>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<p class="panel-title clearfix">
+						Living Style
+						<% if current_user.id == params[:id].to_i %>
+							<%= link_to 'Edit', edit_user_path(current_user.id), class: "btn btn-default pull-right btn-sm" %>
+						<% end %>
+						</p>
+				</div>
+				<div class="panel-body">
+					<% if @user.move %>
+						<dl class="dl-horizontal">
+							<dt>Pets</dt>
+							<dd class="<%= "text-muted" if !@user.age %>">
+								<%= @user.age if @user.age %>
+								<%= "Not specified." if !@user.age %>
+							</dd>
+							<dt>Drinker</dt>
+							<dd class="<%= "text-muted" if !@user.age %>">
+								<%= @user.university if @user.university %>
+								<%= "Not specified." if !@user.age %>
+							</dd>
+							<dt>Smoker</dt>
+							<dd class="<%= "text-muted" if !@user.age %>">
+								<%= @user.gender if @user.gender %>
+								<%= "Not specified." if !@user.age %>
+							</dd>
+							<dt>Socializing</dt>
+							<dd class="<%= "text-muted" if !@user.age %>">
+								<%= @user.grad_year if @user.grad_year %>
+								<%= "Not specified." if !@user.age %>
+							</dd>
+							<dt>Cleanliness</dt>
+							<dd class="<%= "text-muted" if !@user.age %>">
+								<%= @user.company if @user.company %>
+								<%= "Not specified." if !@user.age %>
+							</dd>
+							<dt>Preferred Amenities</dt>
+							<dd class="<%= "text-muted" if !@user.age %>">
+								<%= @user.company if @user.company %>
+								<%= "Not specified." if !@user.age %>
+							</dd>
+						</dl>
+					<% else %>
+						<p class="text-danger">Not moving currently.</p>
+					<% end %>
 				</div>
 			</div>
 		</div>
 		<div class="col-sm-7">
-			<div class="well clearfix">
-				<form class="form">
-					<p>Your Roomidex connections can see your posts in their feed or on your profile.</p>
-					<div class="form-group">
-						<textarea class="form-control"></textarea>
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="well clearfix">
+						<form class="form">
+							<p>Your Roomidex connections can see your posts in their feed or on your profile.</p>
+							<div class="form-group">
+								<textarea class="form-control" placeholder="Share a cool place, or tell people about your room."></textarea>
+							</div>
+							<div class="form-group">
+								<button class="btn btn-primary pull-right btn-sm" type="submit">Post</input>
+							</div>
+						</form>
 					</div>
-					<div class="form-group">
-						<button class="btn btn-primary pull-right btn-sm" type="submit">Post</input>
-					</div>
-				</form>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-7">
+					<h4 class="text-muted">You have not posted anything.</h4>
+				</div>
 			</div>
 		</div>
 	</div>
