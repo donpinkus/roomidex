@@ -6,12 +6,13 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
+
   </div>
   <div class="collapse navbar-collapse">
     <ul class="nav navbar-nav navbar-right">
       <% if user_signed_in? %>
         <li>
-          <a href="#"><%= current_user.name %></a>
+          <%= link_to current_user.name, user_path(current_user) %></a>
         </li>
         <li>
           <div class="navbar-form">
