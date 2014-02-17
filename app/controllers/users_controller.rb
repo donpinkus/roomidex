@@ -3,7 +3,9 @@ class UsersController < ApplicationController
   before_filter :correct_user?, :except => [:index, :show]
 
   def index
-    @users = User.all
+    # @users = User.all
+    @search = User.search(params[:q])
+    @users = @search.result
   end
 
     def edit
