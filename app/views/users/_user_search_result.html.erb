@@ -9,7 +9,7 @@
     	<% end %>
     	<div class="userInfo">
     		<dt>Education</dt>
-    		<dd lass="<%= "text-muted" if !user.university %>">
+    		<dd class="<%= "text-muted" if !user.university %>">
     			<%= user.university if user.university %>
     			<%= "No school given" if !user.university %>
     			<span> - </span>
