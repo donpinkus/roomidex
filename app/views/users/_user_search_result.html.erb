@@ -9,32 +9,32 @@
     	<% end %>
     	<div class="userInfo">
     		<dt>Education</dt>
-    		<dd>
+    		<dd lass="<%= "text-muted" if !user.university %>">
     			<%= user.university if user.university %>
-    			<%= "Not specified." if !user.university %>
+    			<%= "No school given" if !user.university %>
     			<span> - </span>
     			<%= user.grad_year if user.grad_year %>
-    			<%= "Not specified." if !user.grad_year %>
+    			<%= "No grad year given." if !user.grad_year %>
     		</dd>
 				<dt>Work</dt>
-				<dd class="<%= "text-muted" if !user.age %>">
+				<dd class="<%= "text-muted" if !user.company %>">
 					<%= user.company if user.company %>
-					<%= "Not specified." if !user.age %>
+					<%= "No company given" if !user.company %>
 					<span> - </span>
     			<%= user.occupation if user.occupation %>
-    			<%= "Not specified." if !user.occupation %>
+    			<%= "No role given" if !user.occupation %>
 				</dd>
 			</div>
 			<br/>
 			<div class="actionButtons row">
 				<div class="col-sm-4">
-					<%= link_to "View Profile", user, class: "btn btn-primary btn-sm btn-block" %>
+					<%= link_to "View Profile", user, class: "btn btn-default btn-sm btn-block" %>
 				</div>
 				<div class="col-sm-4">
-					<%= link_to "Send Message", "#", class: "btn btn-primary btn-sm btn-block" %>
+					<%= link_to "Send Message", "#", class: "btn btn-default btn-sm btn-block" %>
 				</div>
 				<div class="col-sm-4">
-					<%= link_to "Add to Roomidex", "#", class: "btn btn-primary btn-sm btn-block" %>
+					<%= link_to "Add to Roomidex", "#", class: "btn btn-default btn-sm btn-block" %>
 				</div>
 			</div>
     </div>
