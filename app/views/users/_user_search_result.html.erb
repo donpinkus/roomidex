@@ -1,0 +1,42 @@
+<li class="userSearchResult">
+	<div class="row">
+  	<div class="col-sm-3">
+  		<img class="userPhoto" src="https://graph.facebook.com/<%= user.uid %>/picture?width=150&height=150" alt="" />
+  	</div>
+  	<div class="col-sm-9">
+    	<%= link_to user do %>
+    		<h4><%= user.name.to_s %></h4>
+    	<% end %>
+    	<div class="userInfo">
+    		<dl class="dl-horizontal">
+					<dt>University</dt>
+					<dd class="<%= "text-muted" if !user.age %>">
+						<%= user.university if user.university %>
+						<%= "Not specified." if !user.age %>
+					</dd>
+					<dt>Graduation</dt>
+					<dd class="<%= "text-muted" if !user.age %>">
+						<%= user.grad_year if user.grad_year %>
+						<%= "Not specified." if !user.age %>
+					</dd>
+					<dt>Company</dt>
+					<dd class="<%= "text-muted" if !user.age %>">
+						<%= user.company if user.company %>
+						<%= "Not specified." if !user.age %>
+					</dd>
+				</dl>
+			</div>
+			<div class="actionButtons row">
+				<div class="col-sm-4">
+					<%= link_to "View Profile", user, class: "btn btn-default btn-sm btn-block" %>
+				</div>
+				<div class="col-sm-4">
+					<%= link_to "Send Message", "#", class: "btn btn-default btn-sm btn-block" %>
+				</div>
+				<div class="col-sm-4">
+					<%= link_to "Add to Roomidex", "#", class: "btn btn-default btn-sm btn-block" %>
+				</div>
+			</div>
+    </div>
+  </div>
+</li>

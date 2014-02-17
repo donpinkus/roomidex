@@ -1,0 +1,43 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h4 class="panel-title">Move</h4>
+	</div>
+	<div class="panel-body">
+		<h4>Move dates</h4>
+		<div class="form-group">
+			<%= f.label :move_start_date_gteq, "Start" %>
+			<%= f.date_field :move_start_date_gteq, class: "form-control input-sm" %>
+		</div>
+		<div class="form-group">
+			<%= f.label :move_start_date_lteq, "End" %>
+			<%= f.date_field :move_end_date_lteq, class: "form-control input-sm" %>
+		</div>
+		<h4>Price Range</h4>
+		<div class="form-group">
+			<%= f.label :move_min_price_gteq, "Minimum" %>
+			<%= f.text_field :move_min_price_gteq, class: "form-control input-sm" %>
+		</div>
+		<div class="form-group">
+			<%= f.label :move_max_price_lteq, "Maximum" %>
+			<%= f.text_field :move_max_price_lteq, class: "form-control input-sm" %>
+		</div>
+	</div>
+</div>
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h4 class="panel-title">Personality</h4>
+	</div>
+	<div class="panel-body">
+		<div class="form-group">
+			<%= f.label :age_gteq, "Age between" %>
+			<%= f.text_field :age_gteq, class: "form-control input-sm" %>
+			<span> and </span>
+			<%= f.text_field :age_lteq, class: "form-control input-sm" %>
+		</div>
+		<div class="form-group">
+			<%= f.label :gender_eq, "Gender" %>
+			<%= f.collection_select :gender_eq, User.order(:gender),:gender,:gender, include_blank: true %>
+		</div>
+	</div>
+</div>		
+<%= f.submit "Search", class: "btn btn-success btn-block" %>
