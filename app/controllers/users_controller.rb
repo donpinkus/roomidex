@@ -8,8 +8,12 @@ class UsersController < ApplicationController
     @users = @search.result(distinct: true)
   end
 
-    def edit
+  def edit
     @user = User.find(params[:id])
+    if !@user.move 
+      @user.build_move
+    end
+    @neighborhoods = Neighborhood.all
   end
   
   def update
@@ -34,7 +38,8 @@ class UsersController < ApplicationController
         :university,
         :grad_year,
         :occupation,
-        :company
+        :company,
+        move_attributes: [:start_date, :end_date, :user_id]
       )
     end
 end

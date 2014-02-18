@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140217213146) do
+ActiveRecord::Schema.define(version: 20140217222135) do
 
   create_table "cities", force: true do |t|
     t.string   "name"
@@ -30,6 +30,16 @@ ActiveRecord::Schema.define(version: 20140217213146) do
   end
 
   add_index "moves", ["user_id"], name: "index_moves_on_user_id"
+
+  create_table "neighbhood_preferences", force: true do |t|
+    t.integer  "neighborhood_id"
+    t.integer  "move_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "neighbhood_preferences", ["move_id"], name: "index_neighbhood_preferences_on_move_id"
+  add_index "neighbhood_preferences", ["neighborhood_id"], name: "index_neighbhood_preferences_on_neighborhood_id"
 
   create_table "neighborhoods", force: true do |t|
     t.integer  "city_id"
