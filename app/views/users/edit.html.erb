@@ -42,7 +42,6 @@
 		<div class="col-md-6 col-md-offset-3 well">
 			<h1>Edit your move</h1>
 			<%= simple_form_for(@user, :html => { class: :form } ) do |u| %>
-
 				<%= u.fields_for :move do |m| %>
 				<div class="form-group">
 					<%= m.label :start_date %>
@@ -60,10 +59,22 @@
 					<%= m.label :max_price %>
 					<%= m.text_field :max_price, class: "form-control" %>
 				</div>
-				<%= m.association :neighborhoods, as: :check_boxes, 
-					collection: Neighborhood.all(order: 'name') %>
+				<div class="form-group" id="citySelect">
+					<%= m.association :city, class: "form-control" %>
+				</div>
+
+				<% City.all.each do |city| %>
+					<div class="neighborhoodCheckboxContainer" data-city-id="<%= city.id %>">
+						<%= m.association :neighborhoods, as: :check_boxes, 
+							collection: 
+								Neighborhood.joins(:city)
+									.where("cities.name = ?", city.name)
+									.order(name: :asc) 
+						%>
+					</div>
 				<% end %>
 
+				<% end %>
 
 				<%= u.submit "Save Changes", class: "btn btn-primary" %>
 			<% end %>
