@@ -1,0 +1,111 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<p class="panel-title clearfix">
+			About
+			<% if current_user.id == params[:id].to_i %>
+				<%= link_to 'Edit', edit_user_path(current_user.id), class: "btn btn-default pull-right btn-sm" %>
+			<% end %>
+		</p>
+	</div>
+	<div class="panel-body">
+		<dl class="dl-horizontal">
+			<dt>Age</dt>
+			<dd class="<%= "text-muted" if !@user.age %>">
+				<%= @user.age if @user.age %>
+				<%= "Not specified." if !@user.age %>
+			</dd>
+			<dt>University</dt>
+			<dd class="<%= "text-muted" if !@user.age %>">
+				<%= @user.university if @user.university %>
+				<%= "Not specified." if !@user.age %>
+			</dd>
+			<dt>Graduation</dt>
+			<dd class="<%= "text-muted" if !@user.age %>">
+				<%= @user.grad_year if @user.grad_year %>
+				<%= "Not specified." if !@user.age %>
+			</dd>
+			<dt>Gender</dt>
+			<dd class="<%= "text-muted" if !@user.age %>">
+				<%= @user.gender if @user.gender %>
+				<%= "Not specified." if !@user.age %>
+			</dd>
+			<dt>Company</dt>
+			<dd class="<%= "text-muted" if !@user.age %>">
+				<%= @user.company if @user.company %>
+				<%= "Not specified." if !@user.age %>
+			</dd>
+		</dl>
+	</div>
+</div>
+
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<p class="panel-title clearfix">
+			Move
+			<% if current_user.id == params[:id].to_i %>
+				<%= link_to 'Edit', edit_user_path(current_user.id), class: "btn btn-default pull-right btn-sm" %>
+			<% end %>
+			</p>
+	</div>
+	<div class="panel-body">
+		<% if @user.move %>
+			<dl class="dl-horizontal">
+				<dt>Start Date</dt><dd><%= @user.move.start_date if @user.move.start_date %></dd>
+				<dt>End Date</dt><dd><%= @user.move.end_date if @user.move.end_date %></dd>
+				<dt>Min Price</dt><dd><%= @user.move.min_price if @user.move.min_price %></dd>
+				<dt>Max Price</dt><dd><%= @user.move.max_price if @user.move.max_price %></dd>
+			</dl>
+		<% else %>
+			<p class="text-danger">Not moving currently.</p>
+		<% end %>
+	</div>
+</div>
+
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<p class="panel-title clearfix">
+			Living Style
+			<% if current_user.id == params[:id].to_i %>
+				<%= link_to 'Edit', edit_user_path(current_user.id), class: "btn btn-default pull-right btn-sm" %>
+			<% end %>
+			</p>
+	</div>
+	<div class="panel-body">
+		<% if @user.move %>
+			<dl class="dl-horizontal">
+				<dt>Pets</dt>
+				<dd class="<%= "text-muted" if !@user.age %>">
+					<%= @user.age if @user.age %>
+					<%= "Not specified." if !@user.age %>
+				</dd>
+				<dt>Drinker</dt>
+				<dd class="<%= "text-muted" if !@user.age %>">
+					<%= @user.university if @user.university %>
+					<%= "Not specified." if !@user.age %>
+				</dd>
+				<dt>Smoker</dt>
+				<dd class="<%= "text-muted" if !@user.age %>">
+					<%= @user.gender if @user.gender %>
+					<%= "Not specified." if !@user.age %>
+				</dd>
+				<dt>Socializing</dt>
+				<dd class="<%= "text-muted" if !@user.age %>">
+					<%= @user.grad_year if @user.grad_year %>
+					<%= "Not specified." if !@user.age %>
+				</dd>
+				<dt>Cleanliness</dt>
+				<dd class="<%= "text-muted" if !@user.age %>">
+					<%= @user.company if @user.company %>
+					<%= "Not specified." if !@user.age %>
+				</dd>
+				<dt>Preferred Amenities</dt>
+				<dd class="<%= "text-muted" if !@user.age %>">
+					<%= @user.company if @user.company %>
+					<%= "Not specified." if !@user.age %>
+				</dd>
+			</dl>
+		<% else %>
+			<p class="text-danger">Not moving currently.</p>
+		<% end %>
+	</div>
+</div>
