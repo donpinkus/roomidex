@@ -1,6 +1,6 @@
-class CreateNeighbhoodPreferences < ActiveRecord::Migration
+class CreateNeighborhoodPreferences < ActiveRecord::Migration
   def change
-    create_table :neighbhood_preferences do |t|
+    create_table :neighborhood_preferences do |t|
       t.references :neighborhood, index: true
       t.references :move, index: true
 

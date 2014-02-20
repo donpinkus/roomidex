@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_filter :authenticate_user!
-  before_filter :correct_user?, :except => [:index, :show]
+  # before_filter :authenticate_user!
+  # before_filter :correct_user?, :except => [:index, :show]
 
   def index
     # @users = User.all
@@ -39,7 +39,8 @@ class UsersController < ApplicationController
         :grad_year,
         :occupation,
         :company,
-        move_attributes: [:start_date, :end_date, :user_id]
+        move_attributes: [:id, :start_date, :end_date, :user_id, :min_price, :max_price,
+          neighborhood_ids: []]
       )
     end
 end

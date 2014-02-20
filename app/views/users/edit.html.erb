@@ -1,5 +1,5 @@
 <section class="container">
-
+	<pre><%= @user.errors.full_messages %></pre>
 	<div class="row">
 		<div class="col-md-6 col-md-offset-3 well">
 			<h1>Edit your profile</h1>
@@ -41,17 +41,30 @@
 	<div class="row">
 		<div class="col-md-6 col-md-offset-3 well">
 			<h1>Edit your move</h1>
-			<%= form_for(@user, :html => { class: :form } ) do |u| %>
+			<%= simple_form_for(@user, :html => { class: :form } ) do |u| %>
+
 				<%= u.fields_for :move do |m| %>
-					<div class="form-group">
-						<%= m.label :start_date %>
-						<%= m.date_field :start_date, class: "form-control" %>
-					</div>
-					<div class="form-group">
-						<%= m.label :end_date %>
-						<%= m.date_field :end_date, class: "form-control" %>
-					</div>
+				<div class="form-group">
+					<%= m.label :start_date %>
+					<%= m.date_field :start_date, class: "form-control" %>
+				</div>
+				<div class="form-group">
+					<%= m.label :end_date %>
+					<%= m.date_field :end_date, class: "form-control" %>
+				</div>
+				<div class="form-group">
+					<%= m.label :min_price %>
+					<%= m.text_field :min_price, class: "form-control" %>
+				</div>
+				<div class="form-group">
+					<%= m.label :max_price %>
+					<%= m.text_field :max_price, class: "form-control" %>
+				</div>
+				<%= m.association :neighborhoods, as: :check_boxes, 
+					collection: Neighborhood.all(order: 'name') %>
 				<% end %>
+
+
 				<%= u.submit "Save Changes", class: "btn btn-primary" %>
 			<% end %>
 		</div>

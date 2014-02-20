@@ -15,11 +15,13 @@
 		<h4>Price Range</h4>
 		<div class="form-group">
 			<%= f.label :move_min_price_gteq, "Minimum" %>
-			<%= f.text_field :move_min_price_gteq, class: "form-control input-sm" %>
+			<%= f.text_field :move_min_price_gteq, class: "form-control input-sm", 
+				placeholder: "100" %>
 		</div>
 		<div class="form-group">
 			<%= f.label :move_max_price_lteq, "Maximum" %>
-			<%= f.text_field :move_max_price_lteq, class: "form-control input-sm" %>
+			<%= f.text_field :move_max_price_lteq, class: "form-control input-sm", 
+				placeholder: "5000" %>
 		</div>
 	</div>
 </div>
@@ -30,9 +32,11 @@
 	<div class="panel-body">
 		<div class="form-group">
 			<%= f.label :age_gteq, "Age between" %>
-			<%= f.text_field :age_gteq, class: "form-control input-sm" %>
+			<%= f.text_field :age_gteq, class: "form-control input-sm",
+				placeholder: "1" %>
 			<span> and </span>
-			<%= f.text_field :age_lteq, class: "form-control input-sm" %>
+			<%= f.text_field :age_lteq, class: "form-control input-sm", 
+				placeholder: "99" %>
 		</div>
 		<div class="form-group">
 			<%= f.label :gender_eq, "Gender" %>
