@@ -39,8 +39,8 @@ class UsersController < ApplicationController
         :grad_year,
         :occupation,
         :company,
-        move_attributes: [:id, :start_date, :end_date, :user_id, :min_price, :max_price,
-          neighborhood_ids: []]
+        move_attributes: [:id, :start_date, :end_date, :user_id, :min_price, 
+          :max_price, :city_id, neighborhood_ids: []]
       )
     end
 end
