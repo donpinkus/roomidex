@@ -5,8 +5,12 @@
 		</div>
 		<div class="col-sm-9 col-md-10 col-lg-10 titleInfo">
 			<h1><%= @user.name %></h1>
-			<h4><%= @user.move.min_price %> - <%= @user.move.max_price %></h4>
-			<h4><%= @user.move.start_date %> - <%= @user.move.end_date %></h4>
+			<% if @user.move %>
+				<h4><%= @user.move.min_price %> - <%= @user.move.max_price %></h4>
+				<h4><%= @user.move.start_date %> - <%= @user.move.end_date %></h4>
+			<% else %>
+				<%= "Not currently moving." %>
+			<% end %>
 			<p>
 				<button class="btn btn-primary btn-sm">
 					<i class="glyphicon glyphicon-plus"></i>
