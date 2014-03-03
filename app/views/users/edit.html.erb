@@ -1,5 +1,9 @@
 <section class="container">
-	<pre><%= @user.errors.full_messages %></pre>
+	<div class="row">
+		<div class="col-sm-6 col-sm-offset-3">
+			<%= error_messages_for(@user) %>
+		</div>
+	</div>
 	<div class="row">
 		<div class="col-md-6 col-md-offset-3 well">
 			<h1>Edit your profile</h1>
