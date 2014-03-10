@@ -8,24 +8,24 @@ class UsersController < ApplicationController
     # Unset yourself.
     @users.reject! { |u| u.id == current_user.id }
 
-    @friends_in_common = {}
-    logger.info 'Beginning koala'
-    graph = Koala::Facebook::API.new(session[:oauth_token])
-    logger.info 'completed graph'
-    @users.each do |u|
-      @friends_in_common[u.id] = graph.get_connections(
-        "me", 
-        "mutualfriends/#{u.uid}"
-      )
-    end
-    logger.info 'got friends in common'
+    # @friends_in_common = {}
+    # logger.info 'Beginning koala'
+    # graph = Koala::Facebook::API.new(session[:oauth_token])
+    # logger.info 'completed graph'
+    # @users.each do |u|
+    #   @friends_in_common[u.id] = graph.get_connections(
+    #     "me", 
+    #     "mutualfriends/#{u.uid}"
+    #   )
+    # end
+    # logger.info 'got friends in common'
   end
 
   def show
     @user = User.find(params[:id])
 
-    graph = Koala::Facebook::API.new(session[:oauth_token])
-    @friends_in_common = graph.get_connections("me", "mutualfriends/#{@user.uid}")
+    # graph = Koala::Facebook::API.new(session[:oauth_token])
+    # @friends_in_common = graph.get_connections("me", "mutualfriends/#{@user.uid}")
   end
 
   def edit
