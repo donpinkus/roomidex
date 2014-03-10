@@ -52,3 +52,22 @@ html {
 	}
 }
 
+.friendsInCommon {
+	p {
+		margin-bottom: 2px;
+	}
+	ul {
+		padding: 0px 0px 10px;
+		li {
+			float: left;
+			clear: none;
+			list-style: none;
+			margin-right: 2px;
+			img {
+				width: 30px;
+				height: 30px;
+			}
+		}
+	}
+}
+

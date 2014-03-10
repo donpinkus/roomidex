@@ -26,6 +26,10 @@
 				</dd>
 			</div>
 			<br/>
+			<%= render(:partial => 'facepile', 
+				:locals => {
+					:friends_in_common => @friends_in_common[user.id]
+				}) %>
 			<div class="actionButtons row">
 				<div class="col-sm-4">
 					<%= link_to "View Profile", user, class: "btn btn-default btn-sm btn-block" %>

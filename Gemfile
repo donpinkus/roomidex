@@ -11,6 +11,8 @@ gem 'bootstrap-sass', '>= 3.0.0.0'
 gem 'figaro'
 gem 'omniauth'
 gem 'omniauth-facebook'
+# used for FB graph queries
+gem "koala", "~> 1.8.0rc1"
 gem 'simple_form'
 gem "bugsnag"
 # search gem

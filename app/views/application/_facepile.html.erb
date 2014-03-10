@@ -1,0 +1,15 @@
+<div class="friendsInCommon row">
+	<div class="col-sm-12">
+		<p><%= pluralize(friends_in_common.size, 'friend') %> in common:</p>
+		<ul class="clearfix">
+			<% friends_in_common.each do |f| %>
+			<li>
+				<img src="https://graph.facebook.com/<%= f['id'] %>/picture?width=30&height=30" 
+					alt=""
+					title="<%= f['name'] %>"
+				 />
+			</li>
+			<% end %>
+		</ul>
+	</div>
+</div>

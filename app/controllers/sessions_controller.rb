@@ -14,6 +14,7 @@ class SessionsController < ApplicationController
 # http://guides.rubyonrails.org/security.html#session-fixation-countermeasures
     reset_session
     session[:user_id] = user.id
+    session[:oauth_token] = auth['credentials']['token']
     if user.email.blank?
       redirect_to edit_user_path(user), :alert => "Please enter your email address."
     else
