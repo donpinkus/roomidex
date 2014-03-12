@@ -1,5 +1,7 @@
 Roomidex::Application.routes.draw do
   
+  resources :roomidex_relationships
+
   root :to => "splash_page#index"
 
   resources :users

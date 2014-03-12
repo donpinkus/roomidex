@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @roomidex_relationship.user.name %>
+</p>
+
+<p>
+  <strong>Friend:</strong>
+  <%= @roomidex_relationship.friend.name %>
+</p>
+
+<%= link_to 'Edit', edit_roomidex_relationship_path(@roomidex_relationship) %> |
+<%= link_to 'Back', roomidex_relationships_path %>
