@@ -1,10 +1,10 @@
 <div class="addToRoomidexBtnContainer">
 	<% hidden_class = request != nil ? "hidden" : nil %>
-	<%= link_to "Add to Roomidex", 
+	<%= link_to raw('<i class="glyphicon glyphicon-plus"></i> &nbsp; Add to Roomidex'), 
 		roomidex_requests_path(:receiver_id => user.id, :format => :json), 
 		:method => :post,
 		:remote => true,
-		class: "btn btn-default btn-sm btn-block unsent #{hidden_class}" %>
+		class: "btn btn-primary btn-sm btn-block unsent #{hidden_class}" %>
 
 	<% hidden_class = request != nil && request.try(:accepted) == nil ? nil : "hidden" %>
 	<%= link_to "Roomidex Request Sent", 

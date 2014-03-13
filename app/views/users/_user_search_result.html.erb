@@ -36,10 +36,7 @@
 			%>
 			<div class="actionButtons row">
 				<div class="col-sm-4">
-					<%= link_to "View Profile", user, class: "btn btn-default btn-sm btn-block" %>
-				</div>
-				<div class="col-sm-4">
-					<%= link_to "Send Message", "#", class: "btn btn-default btn-sm btn-block" %>
+					<%= link_to raw('<i class="glyphicon glyphicon-comment"></i> &nbsp; Send Message'), "#", class: "btn btn-primary btn-sm btn-block" %>
 				</div>
 				<div class="col-sm-4">
 					<% friend_request = current_user.roomidex_requests.find_by_receiver_id(user.id) %>

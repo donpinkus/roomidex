@@ -13,19 +13,23 @@
 				<h4><%= @user.move.min_price %> - <%= @user.move.max_price %></h4>
 				<h4><%= @user.move.start_date %> - <%= @user.move.end_date %></h4>
 			<% else %>
-				<%= "Not currently moving." %>
+				<p class="text-danger"><%= "This person is not currently moving." %></p>
 			<% end %>
-			<p>
-				<button class="btn btn-primary btn-sm">
-					<i class="glyphicon glyphicon-plus"></i>
-					Add to Roomidex
-				</button>
-				<button class="btn btn-success btn-sm">
-					<i class="glyphicon-envelope glyphicon"></i>
-					Send Message
-				</button> 
+			<div class="actionButtons row">
+				<div class="col-sm-3">
+					<%= link_to raw('<i class="glyphicon glyphicon-comment"></i> &nbsp; Send Message'), "#", class: "btn btn-primary btn-sm btn-block" %>
+				</div>
+				<div class="col-sm-3">
+					<% friend_request = current_user.roomidex_requests.find_by_receiver_id(@user.id) %>
+					<%= render(
+						:partial => 'application/roomidex_button', 
+						:locals => {
+							:user => @user,
+							:request => current_user.roomidex_requests.find_by_receiver_id(@user.id)
+						}) %>
+				</div>
+			</div>
 				<!-- &nbsp; Response Rate: <span class="text-success">100%</span> -->
-			</p>
 		</div>
 	</div>
 	<div class="row">
