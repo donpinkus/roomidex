@@ -26,10 +26,12 @@
 				</dd>
 			</div>
 			<br/>
-			<%= render(:partial => 'facepile', 
-				:locals => {
-					:friends_in_common => @friends_in_common[user.id]
-				}) %>
+			<%= 
+				render(:partial => 'facepile', 
+					:locals => {
+						:friends_in_common => @friends_in_common[user.id]
+					}) 
+			%>
 			<div class="actionButtons row">
 				<div class="col-sm-4">
 					<%= link_to "View Profile", user, class: "btn btn-default btn-sm btn-block" %>
@@ -38,10 +40,13 @@
 					<%= link_to "Send Message", "#", class: "btn btn-default btn-sm btn-block" %>
 				</div>
 				<div class="col-sm-4">
-					<%= link_to "Add to Roomidex", 
-						roomidex_requests_path(:receiver_id => user.id), 
-						:method => :post,
-						class: "btn btn-default btn-sm btn-block" %>
+					<% friend_request = current_user.roomidex_requests.find_by_receiver_id(user.id) %>
+					<%= render(
+						:partial => 'application/roomidex_button', 
+						:locals => {
+							:user => user,
+							:request => current_user.roomidex_requests.find_by_receiver_id(user.id)
+						}) %>
 				</div>
 			</div>
     </div>

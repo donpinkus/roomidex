@@ -16,8 +16,8 @@
   <tbody>
     <% @roomidex_requests.each do |roomidex_request| %>
       <tr>
-        <td><%= roomidex_request.requester %></td>
-        <td><%= roomidex_request.receiver %></td>
+        <td><%= roomidex_request.user.name %></td>
+        <td><%= roomidex_request.receiver.name %></td>
         <td><%= roomidex_request.accepted %></td>
         <td><%= roomidex_request.ignored %></td>
         <td><%= link_to 'Show', roomidex_request %></td>

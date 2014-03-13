@@ -1,0 +1,40 @@
+<div class="addToRoomidexBtnContainer">
+	<% hidden_class = request != nil ? "hidden" : nil %>
+	<%= link_to "Add to Roomidex", 
+		roomidex_requests_path(:receiver_id => user.id, :format => :json), 
+		:method => :post,
+		:remote => true,
+		class: "btn btn-default btn-sm btn-block unsent #{hidden_class}" %>
+
+	<% hidden_class = request.try(:accepted) == false ? nil : "hidden" %>
+	<%= link_to "Roomidex Request Sent", 
+		"#", 
+		class: "btn btn-success btn-sm btn-block sent #{hidden_class}",
+		disabled: true %>
+
+	<% hidden_class = request.try(:accepted) == true ? nil : "hidden" %>
+	<%= link_to "Already in your Roomidex", 
+		"#", 
+		class: "btn btn-success btn-sm btn-block complete #{hidden_class}",
+		disabled: true %>
+
+	<!-- todo: pass in a local for a request sent to this user. -->
+	<%= link_to "Accept Roomidex Request", 
+		"#", 
+		class: "btn btn-success btn-sm btn-block accept hidden",
+		disabled: true %>
+</div>
+
+<script>
+	$(document).ready(function(){
+		$('.addToRoomidexBtnContainer a.unsent').on('ajax:success', function(e, data, status, xhr){
+			$(this).addClass('hidden');
+			$(this).siblings('.sent').removeClass('hidden');
+		});
+		
+		$('.addToRoomidexBtnContainer a.accept').on('ajax:success', function(e, data, status, xhr){
+			$(this).addClass('hidden');
+			$(this).siblings('.complete').removeClass('hidden');
+		});
+	});
+</script>
