@@ -6,7 +6,7 @@
 		:remote => true,
 		class: "btn btn-default btn-sm btn-block unsent #{hidden_class}" %>
 
-	<% hidden_class = request.try(:accepted) == false ? nil : "hidden" %>
+	<% hidden_class = request != nil && request.try(:accepted) == nil ? nil : "hidden" %>
 	<%= link_to "Roomidex Request Sent", 
 		"#", 
 		class: "btn btn-success btn-sm btn-block sent #{hidden_class}",
