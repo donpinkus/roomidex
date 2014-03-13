@@ -1,7 +1,9 @@
 <li class="userSearchResult">
 	<div class="row">
   	<div class="col-sm-3">
-  		<img class="userPhoto" src="https://graph.facebook.com/<%= user.uid %>/picture?width=150&height=150" alt="" />
+  		<a href="/users/<%= user.id %>">
+  			<img class="userPhoto" src="https://graph.facebook.com/<%= user.uid %>/picture?width=150&height=150" alt="" />
+  		</a>
   	</div>
   	<div class="col-sm-9">
     	<%= link_to user do %>
