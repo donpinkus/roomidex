@@ -11,7 +11,27 @@
   <div class="collapse navbar-collapse">
     <ul class="nav navbar-nav navbar-right">
       <% if user_signed_in? %>
-        <li>
+        <li class="
+          <%= params[:controller] == "users" && params[:action] == "index" ? 
+            "active" : nil %>" >
+          <%= link_to "Search", users_path %></a>
+        </li>
+
+        <li class="
+          <%= params[:controller] == "roomidex_relationships" && params[:action] == "index" ? 
+            "active" : nil %>" >
+          <%= link_to "My Roomidex", roomidex_relationships_path %></a>
+        </li>
+
+        <li class="
+          <%= params[:controller] == "messages" && params[:action] == "index" ? 
+            "active" : nil %>" >
+          <%= link_to "Messages", "#" %></a>
+        </li>
+
+        <li class="
+          <%= params[:controller] == "users" && params[:action] == "show" && params[:id].to_i == current_user.id ? 
+            "active" : nil %>" >
           <%= link_to current_user.name, user_path(current_user) %></a>
         </li>
         <li>
