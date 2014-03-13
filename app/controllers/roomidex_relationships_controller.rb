@@ -44,7 +44,10 @@ class RoomidexRelationshipsController < ApplicationController
           location: @roomidex_relationship 
         }
       else
-        format.html { flash[:error] = "Unable to create Roomidex connection." }
+        format.html { 
+          flash[:error] = "Unable to create Roomidex connection." 
+          redirect_to :back
+        }
         format.json { 
           render json: @roomidex_relationship.errors, 
           status: :unprocessable_entity 
@@ -85,6 +88,6 @@ class RoomidexRelationshipsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def roomidex_relationship_params
-      params.require(:roomidex_relationship).permit(:user_id, :friend_id, :index, :show, :create, :destroy)
+      params.require(:roomidex_relationship).permit(:user_id, :friend_id)
     end
 end

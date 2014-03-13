@@ -39,7 +39,7 @@
 				</div>
 				<div class="col-sm-4">
 					<%= link_to "Add to Roomidex", 
-						roomidex_relationships_path(:friend_id => user), 
+						roomidex_requests_path(:receiver_id => user.id), 
 						:method => :post,
 						class: "btn btn-default btn-sm btn-block" %>
 				</div>

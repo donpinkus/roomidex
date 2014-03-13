@@ -4,6 +4,13 @@ class User < ActiveRecord::Base
   has_one :move, :dependent => :destroy
   accepts_nested_attributes_for :move, allow_destroy: true
 
+  # Friend requests
+  has_many :roomidex_requests
+  has_many :received_roomidex_requests,
+    :class_name => "RoomidexRequest",
+    :foreign_key => "receiver_id"
+
+  # Friend connections
   has_many :roomidex_relationships
   has_many :friends, :through => :roomidex_relationships
   has_many :inverse_roomidex_relationships, 

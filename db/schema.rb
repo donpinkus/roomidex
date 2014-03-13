@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140311161846) do
+ActiveRecord::Schema.define(version: 20140312233606) do
 
   create_table "cities", force: true do |t|
     t.string   "name"
@@ -100,6 +100,18 @@ ActiveRecord::Schema.define(version: 20140311161846) do
   end
 
   add_index "roomidex_relationships", ["user_id"], name: "index_roomidex_relationships_on_user_id"
+
+  create_table "roomidex_requests", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "receiver_id"
+    t.boolean  "accepted"
+    t.boolean  "ignored"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "roomidex_requests", ["receiver_id"], name: "index_roomidex_requests_on_receiver_id"
+  add_index "roomidex_requests", ["user_id"], name: "index_roomidex_requests_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "name"
