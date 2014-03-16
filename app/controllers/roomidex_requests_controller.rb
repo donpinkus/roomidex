@@ -66,6 +66,30 @@ class RoomidexRequestsController < ApplicationController
     end
   end
 
+  def accept
+    roomidex_request = RoomidexRequest.where(
+      "user_id = ? AND receiver_id = ?", 
+      params[:user_id], 
+      params[:receiver_id]
+    ).first
+
+    roomidex_request.accepted = 1
+    roomidex_request.ignored = 0
+    render json: roomidex_request.save
+  end
+
+  def ignore
+    roomidex_request = RoomidexRequest.where(
+      "user_id = ? AND receiver_id = ?", 
+      params[:user_id], 
+      params[:receiver_id]
+    ).first
+    
+    roomidex_request.accepted = 0
+    roomidex_request.ignored = 1
+    render json: roomidex_request.save
+  end
+
   # DELETE /roomidex_requests/1
   # DELETE /roomidex_requests/1.json
   def destroy

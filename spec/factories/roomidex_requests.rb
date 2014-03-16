@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :roomidex_request do
-    requester nil
+    user nil
     receiver nil
     accepted false
     ignored false

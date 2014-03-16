@@ -1,0 +1,40 @@
+<div class="container">
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="alert alert-success roomidexRequest">
+				<p><strong><%= @received_roomidex_requests.user.name %></strong> wants to add you to their Roomidex.</p>
+				<br/>
+				<div class="buttons">
+					<%= link_to "Accept",
+						accept_roomidex_requests_path(@received_roomidex_requests.user.id, current_user.id),
+						:method => :post,
+						:remote => true,
+ 						class: "btn btn-success btn-sm acceptBtn" %>
+ 					<%= link_to "Ignore",
+						ignore_roomidex_requests_path(@received_roomidex_requests.user.id, current_user.id),
+						:method => :post,
+						:remote => true,
+ 						class: "btn btn-danger btn-sm ignoreBtn" %>
+				</div>
+				<p class="acceptedResponse hidden">
+					<i class="glyphicon glyphicon-ok"></i> Request accepted.
+				</p>
+				<p class="ignoredResponse hidden text-danger">
+					<i class="glyphicon glyphicon-ban-circle"></i> Request ignored.
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	$('.roomidexRequest .acceptBtn').on('ajax:success', function(){
+		$(this).parent('.buttons').hide();
+		$(this).parents('.roomidexRequest').find('.acceptedResponse').removeClass('hidden');
+	});
+
+	$('.roomidexRequest .ignoreBtn').on('ajax:success', function(){
+		$(this).parent('.buttons').hide();
+		$(this).parents('.roomidexRequest').find('.ignoredResponse').removeClass('hidden');
+	});
+</script>

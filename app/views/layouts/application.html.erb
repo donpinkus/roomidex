@@ -24,6 +24,9 @@
     </header>
     <main role="main">
       <%= render 'layouts/messages' %>
+      <% if current_user %>
+        <%= render 'roomidex_requests/roomidex_requests' %>
+      <% end %>
       <%= yield %>
     </main>
   </body>
