@@ -1,5 +1,6 @@
 class RoomidexRelationshipsController < ApplicationController
   before_action :set_roomidex_relationship, only: [:show, :edit, :update, :destroy]
+  before_action :set_roomidex_relationships, only: [:index]
 
   # This class was created with scaffold, currently only need create and destroy,
   # so commenting out all else. 
@@ -7,13 +8,11 @@ class RoomidexRelationshipsController < ApplicationController
   # # GET /roomidex_relationships
   # # GET /roomidex_relationships.json
   def index
-    @roomidex_relationships = current_user.roomidex_relationships
   end
 
   # GET /roomidex_relationships/1
   # GET /roomidex_relationships/1.json
   def show
-    @roomidex_relationships = current_user.roomidex_relationships
   end
 
   # # GET /roomidex_relationships/new
@@ -84,6 +83,14 @@ class RoomidexRelationshipsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_roomidex_relationship
       @roomidex_relationship = RoomidexRelationship.find(params[:id])
+    end
+
+    def set_roomidex_relationships
+      @roomidex_relationships = RoomidexRelationship.where(
+        "user_id = ? OR friend_id = ?", 
+        current_user.id, 
+        current_user.id
+      )
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

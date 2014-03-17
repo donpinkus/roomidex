@@ -39,12 +39,12 @@
 					<%= link_to raw('<i class="glyphicon glyphicon-comment"></i> &nbsp; Send Message'), "#", class: "btn btn-primary btn-sm btn-block" %>
 				</div>
 				<div class="col-sm-4">
-					<% friend_request = current_user.roomidex_requests.find_by_receiver_id(user.id) %>
+					<% friend_request = RoomidexRequest.get_edge(current_user.id, user.id) %>
 					<%= render(
 						:partial => 'application/roomidex_button', 
 						:locals => {
 							:user => user,
-							:request => current_user.roomidex_requests.find_by_receiver_id(user.id)
+							:request => friend_request
 						}) %>
 				</div>
 			</div>

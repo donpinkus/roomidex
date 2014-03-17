@@ -33,10 +33,17 @@ class ApplicationController < ActionController::Base
 
     def set_received_roomidex_requests
       if current_user
-        @received_roomidex_requests = RoomidexRequest.where(
-          "receiver_id = ? AND ignored IS NULL AND accepted IS NULL", 
-          current_user.id
+        @received_roomidex_requests = RoomidexRequest.find(
+          :all, 
+          :conditions => { 
+            :receiver_id => current_user.id, 
+            :accepted => [nil, false, ''],
+            :ignored => [nil, false, ''] }
         )
+        # @received_roomidex_requests = RoomidexRequest.where(
+        #   "receiver_id = ? AND ignored IS NULL AND accepted IS NULL", 
+        #   current_user.id
+        # )
       end
     end
 

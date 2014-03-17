@@ -1,32 +1,16 @@
-<h1>Listing roomidex_relationships</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Friend</th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @roomidex_relationships.each do |roomidex_relationship| %>
-      <tr>
-        <td><%= roomidex_relationship.user.name %></td>
-        <td><%= roomidex_relationship.friend.name %></td>
-        <td><%= link_to 'Remove Friend', roomidex_relationship, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<h2>People who reached out to you:</h2>
-<ul>
-  <% current_user.inverse_friends.each do |f| %>
-    <li><%= f.name %></li>
-  <% end %>
-</ul>
-
-<%= link_to 'Find more roomates', root_path %>
+<section class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>Your Roomidex</h1>
+      <% @roomidex_relationships.each do |r| %>
+        <%
+          user = r.user_id == current_user.id ? r.friend : r.user
+        %>
+        <%= render(:partial => 'users/user_search_result', :locals => { :user => user }) %>
+      <% end %>
+      <div>
+        <%= link_to 'Find more roomates', root_path %>
+      </div>
+    </div>
+  </div>
+</section>

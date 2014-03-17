@@ -66,6 +66,16 @@ class RoomidexRequestsController < ApplicationController
     end
   end
 
+  # DELETE /roomidex_requests/1
+  # DELETE /roomidex_requests/1.json
+  def destroy
+    @roomidex_request.destroy
+    respond_to do |format|
+      format.html { redirect_to roomidex_requests_url }
+      format.json { head :no_content }
+    end
+  end
+
   def accept
     roomidex_request = RoomidexRequest.where(
       "user_id = ? AND receiver_id = ?", 
@@ -75,6 +85,13 @@ class RoomidexRequestsController < ApplicationController
 
     roomidex_request.accepted = 1
     roomidex_request.ignored = 0
+
+        # Create a roomidex relationship
+    roomidex_relationship = RoomidexRelationship.create(
+      :user_id => params[:user_id], 
+      :friend_id => params[:receiver_id]
+    )
+
     render json: roomidex_request.save
   end
 
@@ -87,17 +104,8 @@ class RoomidexRequestsController < ApplicationController
     
     roomidex_request.accepted = 0
     roomidex_request.ignored = 1
-    render json: roomidex_request.save
-  end
 
-  # DELETE /roomidex_requests/1
-  # DELETE /roomidex_requests/1.json
-  def destroy
-    @roomidex_request.destroy
-    respond_to do |format|
-      format.html { redirect_to roomidex_requests_url }
-      format.json { head :no_content }
-    end
+    render json: roomidex_request.save
   end
 
   private

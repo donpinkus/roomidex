@@ -1,18 +1,18 @@
 <div class="addToRoomidexBtnContainer">
-	<% hidden_class = request != nil ? "hidden" : nil %>
+	<% hidden_class = request.exists? == false ? nil : "hidden" %>
 	<%= link_to raw('<i class="glyphicon glyphicon-plus"></i> &nbsp; Add to Roomidex'), 
 		roomidex_requests_path(:receiver_id => user.id, :format => :json), 
 		:method => :post,
 		:remote => true,
 		class: "btn btn-primary btn-sm btn-block unsent #{hidden_class}" %>
 
-	<% hidden_class = request != nil && request.try(:accepted) == nil ? nil : "hidden" %>
+	<% hidden_class = request.exists? == true && request.first.try(:accepted) == nil ? nil : "hidden" %>
 	<%= link_to "Roomidex Request Sent", 
 		"#", 
 		class: "btn btn-success btn-sm btn-block sent #{hidden_class}",
 		disabled: true %>
 
-	<% hidden_class = request.try(:accepted) == true ? nil : "hidden" %>
+	<% hidden_class = request.first.try(:accepted) == true ? nil : "hidden" %>
 	<%= link_to "Already in your Roomidex", 
 		"#", 
 		class: "btn btn-success btn-sm btn-block complete #{hidden_class}",
