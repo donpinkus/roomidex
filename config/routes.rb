@@ -1,5 +1,7 @@
 Roomidex::Application.routes.draw do
   
+  resources :messages 
+
   resources :roomidex_requests
   post '/roomidex_requests/:user_id/:receiver_id/accept' => 'roomidex_requests#accept', :as => :accept_roomidex_requests
   post '/roomidex_requests/:user_id/:receiver_id/ignore' => 'roomidex_requests#ignore', :as => :ignore_roomidex_requests

@@ -1,0 +1,31 @@
+<section class="container">
+	<div class="row">
+		<div class="col-sm-12">
+			<h1>Inbox</h1>
+			<div class="table-responsive">
+				<table class="table">
+					<thead>
+						<th class="col-sm-1">Sender</th>
+						<th class="col-sm-9">Subject</th>
+						<th class="col-sm-2">Received</th>
+					</thead>
+					<tbody>
+
+						<% @inbox.each do |conv| %>
+							<% receipts = conv.receipts_for current_user %>
+							<% receipts.each do |receipt| %>
+								<%= receipt.message.inspect %>
+								<tr>
+									<td><%= receipt.message.sender.name %></td>
+									<td><%= receipt.message.subject %></td>
+									<td><%= receipt.updated_at %></td>
+								</tr>
+							<% end %>
+						<% end %>
+
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</section>

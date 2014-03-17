@@ -7,12 +7,8 @@ class User < ActiveRecord::Base
   has_one :move, :dependent => :destroy
   accepts_nested_attributes_for :move, allow_destroy: true
 
-  def name
-    return "Don test"
-  end
-
   def notification_email(object)
-    return "don.pinkus@gmail.com"
+    return self.email
   end
 
   # Friend requests
