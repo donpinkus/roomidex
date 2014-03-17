@@ -3,10 +3,10 @@
     <div class="col-sm-12">
       <h1>Your Roomidex</h1>
       <% @roomidex_relationships.each do |r| %>
-        <%
-          user = r.user_id == current_user.id ? r.friend : r.user
-        %>
-        <%= render(:partial => 'users/user_search_result', :locals => { :user => user }) %>
+        <% user = r.user_id == current_user.id ? r.friend : r.user %>
+        <%= render(
+          :partial => 'users/user_search_result', 
+          :locals => { :user => user }) %>
       <% end %>
       <div>
         <%= link_to 'Find more roomates', root_path %>
