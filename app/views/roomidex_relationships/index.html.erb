@@ -4,9 +4,22 @@
       <h1>Your Roomidex</h1>
       <% @roomidex_relationships.each do |r| %>
         <% user = r.user_id == current_user.id ? r.friend : r.user %>
-        <%= render(
-          :partial => 'users/user_search_result', 
-          :locals => { :user => user }) %>
+        <%
+          graph = Koala::Facebook::API.new(session[:oauth_token])
+          friends_in_common = graph.get_connections(
+            "me", 
+            "mutualfriends/#{user.uid}"
+          ) 
+        %>
+        <%= 
+          render(
+            :partial => 'users/user_search_result', 
+            :locals => { 
+              :user => user,
+              :friends_in_common => friends_in_common  
+            }
+          ) 
+        %>
       <% end %>
       <div>
         <%= link_to 'Find more roomates', root_path %>

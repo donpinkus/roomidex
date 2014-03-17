@@ -47,5 +47,14 @@ class ApplicationController < ActionController::Base
       end
     end
 
-
+    def set_friends_in_common_map(users)
+      @friends_in_common_map = {}
+      graph = Koala::Facebook::API.new(session[:oauth_token])
+      users.each do |u|
+        @friends_in_common_map[u.id] = graph.get_connections(
+          "me", 
+          "mutualfriends/#{u.uid}"
+        )
+      end
+    end
 end

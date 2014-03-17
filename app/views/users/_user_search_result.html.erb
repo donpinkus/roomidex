@@ -31,8 +31,8 @@
 			<%= 
 				render(:partial => 'facepile', 
 					:locals => {
-						:friends_in_common => @friends_in_common[user.id]
-					}) 
+						:friends_in_common => friends_in_common
+					}) if current_user != user
 			%>
 			<div class="actionButtons row">
 				<div class="col-sm-4">
