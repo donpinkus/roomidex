@@ -1,22 +1,5 @@
 #users_index {
 	padding-top: 40px;
-	.userSearchResult{
-		background: white;
-		list-style: none;
-		padding: 8px;
-		border-radius: 3px;
-		margin-bottom: 10px;
-		-webkit-box-shadow: 0 1px 16px rgba(0, 0, 0, 0.1);
-		-moz-box-shadow: 0 1px 16px rgba(0, 0, 0, 0.1);
-		box-shadow: 0 1px 16px rgba(0, 0, 0, 0.1);
-		.userPhoto {
-			border-radius: 3px;
-			border: 1px solid rgba(0,0,0,0.3);
-			width: 100%;
-		}
-		.actionButtons {
-		}
-	}
 }
 
 #users_edit {
@@ -44,3 +27,21 @@
 		}
 	}
 }
+
+.userSearchResult {
+		background: white;
+		list-style: none;
+		padding: 8px;
+		border-radius: 3px;
+		margin-bottom: 10px;
+		-webkit-box-shadow: 0 1px 16px rgba(0, 0, 0, 0.1);
+		-moz-box-shadow: 0 1px 16px rgba(0, 0, 0, 0.1);
+		box-shadow: 0 1px 16px rgba(0, 0, 0, 0.1);
+		.userPhoto {
+			border-radius: 3px;
+			border: 1px solid rgba(0,0,0,0.3);
+			width: 100%;
+		}
+		.actionButtons {
+		}
+	}

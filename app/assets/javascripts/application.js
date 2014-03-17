@@ -16,3 +16,7 @@
 //= require_tree .
 
 /* removed require turbolinks */
+
+$(document).ready(function(){
+	$('[data-toggle="tooltip"]').tooltip();
+});

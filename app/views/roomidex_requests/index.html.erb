@@ -1,0 +1,33 @@
+<h1>Listing roomidex_requests</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Requester</th>
+      <th>Receiver</th>
+      <th>Accepted</th>
+      <th>Ignored</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @roomidex_requests.each do |roomidex_request| %>
+      <tr>
+        <td><%= roomidex_request.user.name %></td>
+        <td><%= roomidex_request.receiver.name %></td>
+        <td><%= roomidex_request.accepted %></td>
+        <td><%= roomidex_request.ignored %></td>
+        <td><%= link_to 'Show', roomidex_request %></td>
+        <td><%= link_to 'Edit', edit_roomidex_request_path(roomidex_request) %></td>
+        <td><%= link_to 'Destroy', roomidex_request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Roomidex request', new_roomidex_request_path %>

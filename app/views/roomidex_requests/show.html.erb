@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Requester:</strong>
+  <%= @roomidex_request.user.name %>
+</p>
+
+<p>
+  <strong>Receiver:</strong>
+  <%= @roomidex_request.receiver.name %>
+</p>
+
+<p>
+  <strong>Accepted:</strong>
+  <%= @roomidex_request.accepted %>
+</p>
+
+<p>
+  <strong>Ignored:</strong>
+  <%= @roomidex_request.ignored %>
+</p>
+
+<%= link_to 'Edit', edit_roomidex_request_path(@roomidex_request) %> |
+<%= link_to 'Back', roomidex_requests_path %>

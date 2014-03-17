@@ -1,0 +1,2 @@
+module RoomidexRelationshipsHelper
+end

@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   helper_method :user_signed_in?
   helper_method :correct_user?
+  before_action :set_received_roomidex_requests
 
   private
     def current_user
@@ -29,5 +30,22 @@ class ApplicationController < ActionController::Base
         redirect_to root_url, :alert => 'You need to sign in for access to this page.'
       end
     end
+
+    def set_received_roomidex_requests
+      if current_user
+        @received_roomidex_requests = RoomidexRequest.find(
+          :all, 
+          :conditions => { 
+            :receiver_id => current_user.id, 
+            :accepted => [nil, false, ''],
+            :ignored => [nil, false, ''] }
+        )
+        # @received_roomidex_requests = RoomidexRequest.where(
+        #   "receiver_id = ? AND ignored IS NULL AND accepted IS NULL", 
+        #   current_user.id
+        # )
+      end
+    end
+
 
 end

@@ -1,0 +1,16 @@
+<%= simple_form_for(@roomidex_relationship) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :user %>
+    <%= f.input :friend_id %>
+    <%= f.input :index %>
+    <%= f.input :show %>
+    <%= f.input :create %>
+    <%= f.input :destroy %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

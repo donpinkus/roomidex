@@ -19,6 +19,7 @@ gem "bugsnag"
 gem "ransack", github: "activerecord-hackery/ransack", branch: "rails-4"
 # messaging gem
 gem 'mailboxer'
+gem 'rspec-rails', :group => [:test, :development]
 group :development do
   gem 'sqlite3'
   gem 'better_errors'
@@ -34,7 +35,6 @@ group :development do
 end
 group :development, :test do
   gem 'factory_girl_rails'
-  gem 'rspec-rails'
 end
 group :production do
   gem 'pg', '0.15.1'

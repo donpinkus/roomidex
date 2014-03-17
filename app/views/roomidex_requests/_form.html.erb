@@ -1,0 +1,14 @@
+<%= simple_form_for(@roomidex_request) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :requester %>
+    <%= f.association :receiver %>
+    <%= f.input :accepted %>
+    <%= f.input :ignored %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
