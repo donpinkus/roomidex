@@ -29,10 +29,10 @@
 			</div>
 			<br/>
 			<%= 
-				# render(:partial => 'facepile', 
-				# 	:locals => {
-				# 		:friends_in_common => @friends_in_common[user.id]
-				# 	}) 
+				render(:partial => 'facepile', 
+					:locals => {
+						:friends_in_common => @friends_in_common[user.id]
+					}) 
 			%>
 			<div class="actionButtons row">
 				<div class="col-sm-4">

@@ -6,10 +6,10 @@
 		<div class="col-sm-9 col-md-10 col-lg-10 titleInfo">
 			<h1><%= @user.name %></h1>
 			<%= 
-				# render(:partial => 'facepile', 
-				# :locals => {
-				#	:friends_in_common => @friends_in_common
-				# }) if current_user != @user 
+				render(:partial => 'facepile', 
+				:locals => {
+					:friends_in_common => @friends_in_common
+				}) if current_user != @user 
 			%>
 			<% if @user.move %>
 				<h4><%= @user.move.min_price %> - <%= @user.move.max_price %></h4>
